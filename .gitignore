@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__/
+.pytest_cache/
+.venv/
+research/source-prompts/*
+!research/source-prompts/.gitkeep
+*.mp4
+*.mov
+*.wav
+*.mp3
+out/
