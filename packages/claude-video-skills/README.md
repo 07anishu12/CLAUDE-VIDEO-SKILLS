@@ -12,10 +12,10 @@ Clone this repository, then copy `.claude/skills/` into your project's `.claude/
 
 ```sh
 mkdir -p /path/to/your-project/.claude
-cp -R .claude/skills /path/to/your-project/.claude/
+cp -R packages/claude-video-skills/.claude/skills /path/to/your-project/.claude/
 # Global installation:
 mkdir -p ~/.claude/skills
-cp -R .claude/skills/* ~/.claude/skills/
+cp -R packages/claude-video-skills/.claude/skills/* ~/.claude/skills/
 ```
 
 ## Invoke
@@ -25,7 +25,7 @@ Use `/claude-video` as the natural-language router, or call an individual skill 
 ```text
 /claude-video Make a Hindi lyric video from this MP3 and lyrics. Preview first.
 /madhubani-kahani Turn this Hindi narration into a painted story video.
-/comic-podcast-reel Edit this podcast clip with a comic-book treatment.
+/podcast-comic-reel Edit this podcast clip with a comic-book treatment.
 ```
 
 Direct skill invocation uses Claude Code's standard `/skill-name` convention. The router selects only a relevant workflow; it does not claim programmatic chaining where unsupported.

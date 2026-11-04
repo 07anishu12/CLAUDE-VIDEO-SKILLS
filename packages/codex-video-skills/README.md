@@ -8,10 +8,10 @@ Copy the `.agents/skills/` directory into the root of a project. For personal, c
 
 ```sh
 mkdir -p /path/to/your-project/.agents
-cp -R .agents/skills /path/to/your-project/.agents/
+cp -R packages/codex-video-skills/.agents/skills /path/to/your-project/.agents/
 # Personal installation:
 mkdir -p ~/.agents/skills
-cp -R .agents/skills/* ~/.agents/skills/
+cp -R packages/codex-video-skills/.agents/skills/* ~/.agents/skills/
 ```
 
 ## Use
