@@ -1,0 +1,652 @@
+{
+  "version": 1,
+  "categories": [
+    "Animated videos",
+    "Reel formats",
+    "Motion effects",
+    "Edit styles",
+    "Looks"
+  ],
+  "skills": [
+    {
+      "id": "3d-explainer",
+      "command": "/3d-explainer",
+      "title": "3D explainer (Blender)",
+      "category": "Animated videos",
+      "purpose": "A 3D animated news explainer built in Blender, like the Professor of Claude ISRO and Cyclone Arnab reels: Claude builds every 3D shot in code (rockets on launch pads, a 3D India map with pins, a storm spiralling over the sea, Earth from space), cuts the camera on your words and pops the numbers in as you say them.",
+      "inputs": "your voiceover MP3 and the topic (2–3 article links)"
+    },
+    {
+      "id": "aarti-video",
+      "command": "/aarti-video",
+      "title": "Aarti video",
+      "category": "Animated videos",
+      "purpose": "A devotional aarti video full of fire and light, like the Shiv aarti: glowing diyas, flames, a damru rhythm and the aarti lines in Devanagari.",
+      "inputs": "the aarti MP3 and its lines in Devanagari"
+    },
+    {
+      "id": "anime-fight",
+      "command": "/anime-fight",
+      "title": "One-punch anime fight",
+      "category": "Animated videos",
+      "purpose": "An anime fight gag in the one-punch style: a sleepy, unbothered hero ends a giant monster with a single punch, then turns the same punch on something relatable, like Monday morning.",
+      "inputs": "your voiceover MP3 and the joke you want on the second punch"
+    },
+    {
+      "id": "anime-reel",
+      "command": "/anime-reel",
+      "title": "Anime reel",
+      "category": "Animated videos",
+      "purpose": "An anime-style episode with original characters drawn in code and lip-synced to your voice lines, like the Zero Se Freelance series.",
+      "inputs": "a script and the voice MP3s for each line"
+    },
+    {
+      "id": "baba-pusho",
+      "command": "/baba-pusho",
+      "title": "Baba Pusho class",
+      "category": "Animated videos",
+      "purpose": "A Puneet Superstar “Baba Pusho” clip as a cartoon class, like Ye likho ye milega Part 8: Pusho preaches from his desk under a big Om, his fixed class of students reacts, and every Hindi line gets a caption plus a scene of its own.",
+      "inputs": "a Puneet Superstar audio clip (MP3)"
+    },
+    {
+      "id": "bairan-style",
+      "command": "/bairan-style",
+      "title": "Watercolour cutout love story",
+      "category": "Animated videos",
+      "purpose": "A romantic lyric video like the Bairan reel: watercolour-painted characters cut out like paper stickers, polaroids, a sunflower and a beating heart popping in, every move fast in and slowly settling.",
+      "inputs": "a song MP3 and its lyrics (Hindi or Haryanvi, one sung line per row)"
+    },
+    {
+      "id": "beat-transition-edit",
+      "command": "/beat-transition-edit",
+      "title": "Beat transition edit",
+      "category": "Animated videos",
+      "purpose": "The trending beat edit from the How to do this with Claude series (Ep 1): your dance or twirl video in smooth slow motion, cutting to your photos on every music hit with a quick zoom-blur dissolve and a warm film grade, copied from any reference reel.",
+      "inputs": "your model video, 3+ photos, the song MP3 and the reference reel"
+    },
+    {
+      "id": "blueprint-explainer",
+      "command": "/blueprint-explainer",
+      "title": "Blueprint explainer",
+      "category": "Animated videos",
+      "purpose": "A long YouTube explainer drawn like an engineering blueprint, like the Piramal Finance loan video: a blue grid sheet, white line drawings, and numbers that calculate live as you talk.",
+      "inputs": "a long voiceover MP3 (3–10 minutes) and the facts or numbers it covers"
+    },
+    {
+      "id": "comic-reel",
+      "command": "/comic-reel",
+      "title": "Comic book reel",
+      "category": "Animated videos",
+      "purpose": "A famous movie scene retold as a comic book, like the Drishyam 3 reel: halftone panels, speed lines, BOOM bursts and speech bubbles for every line of dialogue.",
+      "inputs": "the scene's dialogue audio (MP3)"
+    },
+    {
+      "id": "crayon-carousel",
+      "command": "/crayon-carousel",
+      "title": "Crayon “One day / Day one” carousel",
+      "category": "Animated videos",
+      "purpose": "The trending crayon carousel from How to do this with Claude (Ep 3): every slide puts a crayon drawing of your photo on top, labelled “One day”, over the real photo labelled “Day one”, ready to post as an Instagram carousel.",
+      "inputs": "3–10 of your photos, and their crayon drawings from Gemini"
+    },
+    {
+      "id": "flicker-edit",
+      "command": "/flicker-edit",
+      "title": "Beach flicker edit",
+      "category": "Animated videos",
+      "purpose": "The viral flicker edit from How to do this with Claude (Ep 6): two shots from the same tripod spot, one with the model and one of the empty beach, cut against each other about 8 times a second on the beat, so the model appears and vanishes into the sea, with a small zoom to her face every time she comes back.",
+      "inputs": "a shot (or photo) of the model, the same frame without her, and the song MP3"
+    },
+    {
+      "id": "glass-to-neon-lyrics",
+      "command": "/glass-to-neon-lyrics",
+      "title": "Red glass → clips → pink neon lyric video",
+      "category": "Animated videos",
+      "purpose": "An emotional 16:9 lyric video that keeps changing mood with the song, like the Arz Kiya Hai (Anuv Jain × Lost Stories) video: a red glass Apple-Music-style lyrics card over a wall of giant red words that cracks and shatters, then full-screen clips with the lyrics standing in the empty space (a starry red field with twinkling and shooting stars, a sunny hill, a man against the clouds), a key line cut out as giant letters with fire burning inside them, and a pink neon ending where lyrics fall in, splash and reflect in water while it rains.",
+      "inputs": "a song MP3 (or a clip of it), its lyrics, the cover art, and 4–6 clips or photos with the mood you want for each part"
+    },
+    {
+      "id": "glow-lyrics",
+      "command": "/glow-lyrics",
+      "title": "Glow lyric video",
+      "category": "Animated videos",
+      "purpose": "A dreamy lyric video like MITRAZ's Khwahish from Ye likho ye milega Part 7: flat vector scenes at purple dusk, silhouettes that tell the story (a boy alone on a bench, the girl he misses glowing inside a golden birdcage), soft bloom on every light, and the lyric line glowing in word by word.",
+      "inputs": "a song MP3 and its lyrics (one sung line per row)"
+    },
+    {
+      "id": "hindi-lyric-video",
+      "command": "/hindi-lyric-video",
+      "title": "Hindi lyric video",
+      "category": "Animated videos",
+      "purpose": "A calm Hindi lyric video like Banjaare's “Barsaat”: Devanagari lines write on over old paper while rain falls and footprints walk across the page with the song.",
+      "inputs": "a Hindi song MP3 and its lyrics in Devanagari, one line per row"
+    },
+    {
+      "id": "ink-line-lyrics",
+      "command": "/ink-line-lyrics",
+      "title": "Ink-line lyric video",
+      "category": "Animated videos",
+      "purpose": "A fast lyric video drawn as ONE glowing ink line that never breaks, like the Main Aur Tu reel: the line morphs into a new drawing on every key word, with the camera punching on every kick.",
+      "inputs": "a song MP3 and its lyrics, one sung line per row"
+    },
+    {
+      "id": "katha-video",
+      "command": "/katha-video",
+      "title": "Katha video",
+      "category": "Animated videos",
+      "purpose": "A pravachan clip turned into an animated story: the characters act out the kahani, the speaker talks from a lip-synced corner badge, and Hindi captions follow every word.",
+      "inputs": "a 60–90 second pravachan MP3"
+    },
+    {
+      "id": "kids-story",
+      "command": "/kids-story",
+      "title": "Kids cartoon story",
+      "category": "Animated videos",
+      "purpose": "A bright 60-second kids story like Pyaasi Chidiya: soft rounded characters, a sunny world, Hindi speech bubbles and a little reacting companion in the corner.",
+      "inputs": "the story voiceover MP3 (ElevenLabs, Hindi) and the script"
+    },
+    {
+      "id": "kinetic-lyrics",
+      "command": "/kinetic-lyrics",
+      "title": "Kinetic lyrics",
+      "category": "Animated videos",
+      "purpose": "Big kinetic typography for an English song, like Justin Bieber's “Let Me Love You”: every word punches in on the beat in chunky letters on black, with paint splats and confetti.",
+      "inputs": "a song MP3 and its lyrics"
+    },
+    {
+      "id": "latent-comic",
+      "command": "/latent-comic",
+      "title": "Latent comic reel",
+      "category": "Animated videos",
+      "purpose": "An India's Got Latent clip retold as a 9:16 comic book, like the MC Stan episode reels: Samay Raina and the judges at the show's desk on top, a close-up of whoever is talking below with a gag for every line, halftone dots, bursts and speech-bubble captions.",
+      "inputs": "the show clip (MP4, plus the MP3 if you have it) and the transcript, if you have one"
+    },
+    {
+      "id": "latent-reel",
+      "command": "/latent-reel",
+      "title": "Latent-style roast reel",
+      "category": "Animated videos",
+      "purpose": "A roast-show clip turned into a cartoon, like Samay Raina's India's Got Latent: the guest at the mic on the left, the host reacting on the right, the show's stage behind them.",
+      "inputs": "a show clip (MP3) with the guest and host talking"
+    },
+    {
+      "id": "lyric-video",
+      "command": "/lyric-video",
+      "title": "Crayon lyric video",
+      "category": "Animated videos",
+      "purpose": "A hand-drawn crayon lyric video on a dark chalkboard: every word writes on as it's sung, and each line gets its own little drawing.",
+      "inputs": "a song MP3 and its lyrics, one sung line per row"
+    },
+    {
+      "id": "madhubani-kahani",
+      "command": "/madhubani-kahani",
+      "title": "Madhubani kahani",
+      "category": "Animated videos",
+      "purpose": "A Panchatantra-style story told as a living Madhubani painting: double black outlines, patterned fills, fish-scale water and a red-yellow folk border.",
+      "inputs": "a Hindi story voiceover MP3"
+    },
+    {
+      "id": "madira-peekar-soo-gaye",
+      "command": "/madira-peekar-soo-gaye",
+      "title": "Movie dialogue comic",
+      "category": "Animated videos",
+      "purpose": "A famous movie dialogue turned into a comic-book scene, like the Drishyam 3 “madira peekar so gaye” clip from Ye likho ye milega Part 8: one character delivers the line in a speech bubble word by word, then the other explodes in close-up with speed lines and a colour flash.",
+      "inputs": "the dialogue audio (MP3) and the words of each line"
+    },
+    {
+      "id": "maut-ke-bare-mai-sochte-ho",
+      "command": "/maut-ke-bare-mai-sochte-ho",
+      "title": "Podcast dark-joke comic",
+      "category": "Animated videos",
+      "purpose": "A podcast moment retold as a comic page, like the Ranveer × Honey Singh “manzil kya hai? … Death.” clip from Ye likho ye milega Part 8: the host's big question in a speech bubble, a long silent beat, then DEATH. slams in on black with a skull and the guest gulps in an inset panel.",
+      "inputs": "the podcast clip audio (MP3) and who says what"
+    },
+    {
+      "id": "minimal-lyrics",
+      "command": "/minimal-lyrics",
+      "title": "Minimal lyric video",
+      "category": "Animated videos",
+      "purpose": "A quiet, minimal lyric video like Bayaan's Safar from Ye likho ye milega Part 7: a flat horizon, a lone silhouette walking, wind drawn as sweeping streak lines, and a sky whose colour follows the mood of each line, with one small serif lyric line at the bottom.",
+      "inputs": "a song MP3 and its lyrics (one sung line per row)"
+    },
+    {
+      "id": "mirzapur-video",
+      "command": "/mirzapur-video",
+      "title": "Desi don comic meme",
+      "category": "Animated videos",
+      "purpose": "A web-series dialogue turned into a comic meme, like the Kaalin Bhaiya “chai piyoge?” reel: a bold comic portrait of the don, halftone backgrounds that change on every beat, and a POV caption.",
+      "inputs": "the dialogue audio (MP3) and a POV line for the caption"
+    },
+    {
+      "id": "neon-lyrics",
+      "command": "/neon-lyrics",
+      "title": "Neon synthwave lyrics",
+      "category": "Animated videos",
+      "purpose": "A synthwave rap lyric video like KR$NA's “I Guess”: a neon grid, a big retro sun, a cartoon of the rapper in a varsity jacket and glowing Hindi lyrics.",
+      "inputs": "a song MP3, its lyrics, and photos of the rapper's look"
+    },
+    {
+      "id": "news-report",
+      "command": "/news-report",
+      "title": "Tech news report",
+      "category": "Animated videos",
+      "purpose": "A Hinglish tech-news report in Fireship style: flat dark background, screenshot cards with red boxes and highlights, memes, and a hard cut every two seconds, with you as the anchor.",
+      "inputs": "a news topic or 2–3 article links"
+    },
+    {
+      "id": "night-glow-lyrics",
+      "command": "/night-glow-lyrics",
+      "title": "Night-glow emotional lyric video",
+      "category": "Animated videos",
+      "purpose": "A 16:9 lyric video that makes people feel the song, like the Dooron Dooron (Paresh Pahuja ft. Harleen Sethi) video: one night-blue look with glowing white light, emotional clips that follow the story of each line, an Instagram post that dives into the title, and lyrics that change style with the music (small tracked caps + one huge serif word for the key lines, simple bottom lines in between), ending with the last line turning to light.",
+      "inputs": "a song MP3 (or a clip of it), its lyrics, 2–4 emotional video clips (glowing / dreamy couple clips work best) and the song title + artists"
+    },
+    {
+      "id": "painted-beat-edit",
+      "command": "/painted-beat-edit",
+      "title": "Painted beat edit",
+      "category": "Animated videos",
+      "purpose": "A viral footage edit remade with no footage at all, like the Shiv aarti reel from How to do this with Claude (Ep 2): Claude paints the images in code in an acrylic mural style and cuts between them on every half-beat with a slow zoom.",
+      "inputs": "the song MP3 and the reference reel"
+    },
+    {
+      "id": "paper-cutout",
+      "command": "/paper-cutout",
+      "title": "Paper cutout music video",
+      "category": "Animated videos",
+      "purpose": "A paper-cutout music video like Jaadoo: hand-cut paper characters, floating islands and lyric tags that pop on their words, moving in 15 fps stop-motion.",
+      "inputs": "a song MP3 and its lyrics"
+    },
+    {
+      "id": "party-lyrics",
+      "command": "/party-lyrics",
+      "title": "Party anthem lyrics",
+      "category": "Animated videos",
+      "purpose": "A loud party-anthem lyric video, like Honey Singh's Casa Tupka: gold and gem 3D lettering, red curtains and lavender smoke, confetti on every beat, and a cartoon of the singer in their signature look.",
+      "inputs": "a song MP3 and its lyrics"
+    },
+    {
+      "id": "personal-explainer",
+      "command": "/personal-explainer",
+      "title": "Personal explainer",
+      "category": "Animated videos",
+      "purpose": "An explainer in your own voice, like “How will the Tesla fly?”: real footage with credit, clean diagrams that build step by step, numbers that pop, and you as the narrator.",
+      "inputs": "your voiceover MP3, the topic, and any source links"
+    },
+    {
+      "id": "pink-spotify-clip-lyrics",
+      "command": "/pink-spotify-clip-lyrics",
+      "title": "Pink Spotify + clip lyric video",
+      "category": "Animated videos",
+      "purpose": "A poetic 16:9 lyric video like the Alfaaz (Hamza Malik × Zain Zohaib) video: a tilted pink Spotify lyrics card, then motion graphics that follow the meaning of each line (a rose that draws itself, letters cut out of the clip, a cinema letterbox, a dotted footstep path with the words along it, and a split screen for the last line), with my emotional clips playing softly behind the lyrics so both the video and the words stay readable.",
+      "inputs": "a song MP3 (or a clip of it), its lyrics, 1–3 emotional video clips (with the start time for each), a cover image and the Spotify logo PNG"
+    },
+    {
+      "id": "podcast-cartoon",
+      "command": "/podcast-cartoon",
+      "title": "Podcast cartoon",
+      "category": "Animated videos",
+      "purpose": "A famous podcast moment turned into a gag: the podcast clip plays, then an original cheeky cartoon kid pops in as a sticker and asks the big question, and you react, like the “maut ke baare mein sochte ho?” reel.",
+      "inputs": "the podcast clip (MP4), your voiceover MP3, and 3–4 photos of you reacting (smile, think, shock, laugh) with transparent backgrounds"
+    },
+    {
+      "id": "podcast-comic",
+      "command": "/podcast-comic",
+      "title": "Podcast comic reel",
+      "category": "Animated videos",
+      "purpose": "A podcast clip retold as a 9:16 comic book, like the Raj Shamani “ladke ko kab jaanoge” reel: the guest drawn in the studio below (bookshelf, Break the Cage poster, mic), and a new comic panel slams in on top for every point he makes, with a burst word and Hindi speech-bubble captions.",
+      "inputs": "the podcast clip (MP3 or MP4), the transcript in Devanagari, and 1–2 screenshots of the guest and studio"
+    },
+    {
+      "id": "podcast-explainer",
+      "command": "/podcast-explainer",
+      "title": "Podcast explainer",
+      "category": "Animated videos",
+      "purpose": "A podcast clip turned into an animated explainer, like the Raj Shamani “Two Winners” video: simple stick-figure metaphors for every idea, bold kinetic captions, and the host drawn as a cartoon in a live corner window.",
+      "inputs": "a 45–90 second podcast clip (MP3)"
+    },
+    {
+      "id": "pusho-reel",
+      "command": "/pusho-reel",
+      "title": "Pusho reel",
+      "category": "Animated videos",
+      "purpose": "A Puneet Superstar “Baba Pusho” cartoon reel with the full class: Baba Pusho teaching, his students reacting, Hindi captions on every word, a new scene for every line.",
+      "inputs": "a Puneet Superstar audio clip (MP3)"
+    },
+    {
+      "id": "rap-video",
+      "command": "/rap-video",
+      "title": "Rap music video",
+      "category": "Animated videos",
+      "purpose": "A full-energy cartoon rap video like Boom Shaka: the rapper drawn as a bold cartoon, BOOM bursts, speed lines and lyrics that slam in on every beat.",
+      "inputs": "a rap song MP3, its lyrics, and 1–2 photos of the rapper's look"
+    },
+    {
+      "id": "red-rap-lyrics",
+      "command": "/red-rap-lyrics",
+      "title": "Red rap lyric video (4 looks)",
+      "category": "Animated videos",
+      "purpose": "A fast rap lyric video in one red grade, like the Hola Amigo (KR$NA ft. Seedhe Maut) video: a red glass lyrics card that peels in like a page over a tilted wall of lyric words, then neon words standing on a rainy street with ripple reflections, then the rapper's photo turned into a monochrome particle portrait with stacked italic lyrics lighting up word by word, and a 3D tower of words where the camera eases to every new word, ending on a DAMN! slam.",
+      "inputs": "a rap song MP3 (or a clip of it), its lyrics (Hindi in Devanagari works), one photo of the rapper and your reference reels for each section"
+    },
+    {
+      "id": "scribble-edit",
+      "command": "/scribble-edit",
+      "title": "Scribble doodle edit",
+      "category": "Animated videos",
+      "purpose": "Your own clip covered in live marker doodles, like the Justin Bieber “Where Are Ü Now” video from How to do this with Claude (Ep 5): the wall behind you fills with hand-drawn stars, rockets, cats and lightning, crowns and shades stick to your face as you move, a neon line traces your body, and the whole look changes on every beat.",
+      "inputs": "a 9:16 clip of you moving (a plain wall behind you works best) and the song MP3"
+    },
+    {
+      "id": "shadow-puppet",
+      "command": "/shadow-puppet",
+      "title": "Shadow puppet story",
+      "category": "Animated videos",
+      "purpose": "A kids story told like tholu bommalata shadow puppets: black cut-out characters with pin joints moving against a glowing orange screen.",
+      "inputs": "the story voiceover MP3 and the script"
+    },
+    {
+      "id": "sketch-doodle-edit",
+      "command": "/sketch-doodle-edit",
+      "title": "Sketch doodle edit",
+      "category": "Animated videos",
+      "purpose": "One photo turned into the trending sketch doodle edit from How to do this with Claude (Ep 4): the people flicker between the real photo and a pencil sketch on the beat, white wind lines swoosh across the sky, a scribble outline draws around them and a handwritten line writes itself in.",
+      "inputs": "one photo (people against an open sky works best), its pencil-sketch version from Gemini, and the song MP3"
+    },
+    {
+      "id": "sketch-music-video",
+      "command": "/sketch-music-video",
+      "title": "Sketch music video",
+      "category": "Animated videos",
+      "purpose": "A pencil-sketch lyric video like Anuv Jain's “Inaam”: soft graphite drawings of the song's story fill the page while the lyrics are handwritten next to them, line by line.",
+      "inputs": "a song MP3 and its lyrics, one sung line per row"
+    },
+    {
+      "id": "sketch-to-motion",
+      "command": "/sketch-to-motion",
+      "title": "Sketch to motion graphic",
+      "category": "Animated videos",
+      "purpose": "Your rough paper sketches turned into a polished app-promo animation: the sketch stays on the left, the finished motion graphic plays next to it, like the Kulhad chai reel.",
+      "inputs": "8–10 photos of your sketches, plus your product photos and stock clips"
+    },
+    {
+      "id": "spotify-particle-lyrics",
+      "command": "/spotify-particle-lyrics",
+      "title": "Spotify + particle lyric video",
+      "category": "Animated videos",
+      "purpose": "A 16:9 lyric video in four looks, like the Kalyani (ARJN × KDS × Fifty4 × Ronn ft. Shreya Ghoshal) video: a tilted Spotify lyrics card where every sung word lights up with glowing sparks, then the artists' photo turned into a monochrome particle portrait that morphs into a second photo while red-and-white lyrics pop on the right and dance on the beat, then gold motion-graphic lyrics with fast blur word changes for the singer's part, and a black-and-white rain-on-glass music player to end.",
+      "inputs": "a song MP3 (or a clip of it), its lyrics, 1–2 photos (the artists, and a second photo to morph into), the Spotify logo PNG and a reference reel for the motion-graphic part"
+    },
+    {
+      "id": "street-interview",
+      "command": "/street-interview",
+      "title": "Funny street interview",
+      "category": "Animated videos",
+      "purpose": "A funny street interview turned into a cartoon, like the bad day interview: the interviewee drawn as a flat cartoon, night-street background and big caption words on the punchlines.",
+      "inputs": "the interview audio (MP3) with both voices"
+    },
+    {
+      "id": "talking-head-edit",
+      "command": "/talking-head-edit",
+      "title": "Talking-head edit",
+      "category": "Animated videos",
+      "purpose": "Your raw clip, fully edited: captions on every word, the screen splits into two windows to show what you're talking about, and demo videos play full screen. Your face is never re-coloured.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "titan-anime",
+      "command": "/titan-anime",
+      "title": "Titan anime episode",
+      "category": "Animated videos",
+      "purpose": "An anime episode set in an Attack on Titan-style world: giant walls, green capes, horses, flags and titans, with your own original characters telling the story.",
+      "inputs": "a script and the voice MP3s for each line"
+    },
+    {
+      "id": "watercolor-lyrics",
+      "command": "/watercolor-lyrics",
+      "title": "Watercolour lyric scroll",
+      "category": "Animated videos",
+      "purpose": "A soft lyric video like Ashu Shukla's Phir Se Shuru from Ye likho ye milega Part 7: the camera pans right across warm paper while autumn watercolour scenes of one couple draw themselves in (ink lines first, then the wash blooms), leaves fall, and the lyric lines write on word by word.",
+      "inputs": "a song MP3, its lyrics, and 10–14 watercolour images of the same couple (I can write the image prompts for you)"
+    },
+    {
+      "id": "watercolor-map",
+      "command": "/watercolor-map",
+      "title": "Watercolor map journey",
+      "category": "Animated videos",
+      "purpose": "A painted watercolor world map: a pin drops on the start city, a plane flies the real great-circle route, and the destination washes in with colour.",
+      "inputs": "two places, like “Bengaluru → California”"
+    },
+    {
+      "id": "woof-woof",
+      "command": "/woof-woof",
+      "title": "Live-stream bark comic",
+      "category": "Animated videos",
+      "purpose": "A streamer's live moment as a cartoon, like the IShowSpeed “woof woof” clip from Ye likho ye milega Part 8: he stares into the camera, then barks on every beat while WOOF! bursts fly, the live chat floods with woofs and the viewer count shoots up.",
+      "inputs": "the clip audio (MP3), or just tell me when each bark happens"
+    },
+    {
+      "id": "business-short-form-reels",
+      "command": "/business-short-form-reels",
+      "title": "Business short-form reel",
+      "category": "Reel formats",
+      "purpose": "A reel for business topics, with docs, decks and screen recordings as B-roll.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "depth-ui-reel",
+      "command": "/depth-ui-reel",
+      "title": "Depth UI reel",
+      "category": "Reel formats",
+      "purpose": "Floating app interfaces that sit behind my head, with my body cut out in front of them.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "educational-youtube-editor",
+      "command": "/educational-youtube-editor",
+      "title": "Educational YouTube editor",
+      "category": "Reel formats",
+      "purpose": "Turn a long lesson recording into a clean, chaptered YouTube edit.",
+      "inputs": "a long 16:9 lesson recording"
+    },
+    {
+      "id": "personal-broll-library",
+      "command": "/personal-broll-library",
+      "title": "Personal B-roll library",
+      "category": "Reel formats",
+      "purpose": "Search my own B-roll folder in plain English (\"me walking at night\") and return the best matching clips.",
+      "inputs": "a folder of my B-roll clips"
+    },
+    {
+      "id": "personal-short-form-reels",
+      "command": "/personal-short-form-reels",
+      "title": "Personal short-form reel",
+      "category": "Reel formats",
+      "purpose": "A fast personal reel with my own B-roll and word-by-word captions.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "ranking-format",
+      "command": "/ranking-format",
+      "title": "Ranking / tier list",
+      "category": "Reel formats",
+      "purpose": "A tier-list reel: items ranked one by one, S to F.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "youtube-clips",
+      "command": "/youtube-clips",
+      "title": "YouTube clips",
+      "category": "Reel formats",
+      "purpose": "Find the best moments in a long YouTube video and turn each into a vertical clip.",
+      "inputs": "a long 16:9 video or a YouTube link"
+    },
+    {
+      "id": "glass-stat-card",
+      "command": "/glass-stat-card",
+      "title": "Glass stat card",
+      "category": "Motion effects",
+      "purpose": "A frosted-glass card with a number that counts up live.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "led-matrix-text",
+      "command": "/led-matrix-text",
+      "title": "LED matrix text",
+      "category": "Motion effects",
+      "purpose": "Big dot-matrix words, one per beat, like a stadium screen.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "match-cut",
+      "command": "/match-cut",
+      "title": "Match cut",
+      "category": "Motion effects",
+      "purpose": "The same word on a new page, landing in exactly the same spot on screen.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "particle-chart",
+      "command": "/particle-chart",
+      "title": "Particle chart",
+      "category": "Motion effects",
+      "purpose": "Particles pour down and pile up into a bar chart.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "particle-text",
+      "command": "/particle-text",
+      "title": "Particle text",
+      "category": "Motion effects",
+      "purpose": "Words built out of falling dots that assemble on the beat.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "price-tag-zoom",
+      "command": "/price-tag-zoom",
+      "title": "Price-tag zoom",
+      "category": "Motion effects",
+      "purpose": "A slow push-in on a product with a floating price tag.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "shutter-stack",
+      "command": "/shutter-stack",
+      "title": "Shutter stack",
+      "category": "Motion effects",
+      "purpose": "Photo cards that drop in on a camera flash, stacking up.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "dark-red-timeline-motion-graphics",
+      "command": "/dark-red-timeline-motion-graphics",
+      "title": "Dark red timeline",
+      "category": "Edit styles",
+      "purpose": "A dark red grade, a blinking REC tag and an animated timeline.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "hindi-pastel-reel-edit",
+      "command": "/hindi-pastel-reel-edit",
+      "title": "Hindi pastel reel",
+      "category": "Edit styles",
+      "purpose": "A soft pastel set with one giant word behind my head.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "instagram-ui-hinglish",
+      "command": "/instagram-ui-hinglish",
+      "title": "Instagram UI (Hinglish)",
+      "category": "Edit styles",
+      "purpose": "Instagram profile grids behind me, with tick-mark chips for each point.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "iphone-style-by-aansh",
+      "command": "/iphone-style-by-aansh",
+      "title": "iPhone style",
+      "category": "Edit styles",
+      "purpose": "Frosted iOS widgets and notifications floating over my footage.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "kinetic-talking-head-edit",
+      "command": "/kinetic-talking-head-edit",
+      "title": "Kinetic talking head",
+      "category": "Edit styles",
+      "purpose": "A cream panel with green highlight typography that moves with my words.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "podcast-reel-edit",
+      "command": "/podcast-reel-edit",
+      "title": "Podcast reel edit",
+      "category": "Edit styles",
+      "purpose": "Tight cuts, a clean headline and punch-ins, podcast-clip style.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "red-kinetic-collage-edit",
+      "command": "/red-kinetic-collage-edit",
+      "title": "Red kinetic collage",
+      "category": "Edit styles",
+      "purpose": "Black-and-white footage with one glowing red word and collage-style type.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "breaking-news",
+      "command": "/breaking-news",
+      "title": "Breaking news",
+      "category": "Looks",
+      "purpose": "A TV-news lower third, a scrolling ticker and a channel bug.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "cinema-scope",
+      "command": "/cinema-scope",
+      "title": "Cinema scope",
+      "category": "Looks",
+      "purpose": "2.39:1 film bars, film grain and a title card.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "comic-halftone",
+      "command": "/comic-halftone",
+      "title": "Comic halftone",
+      "category": "Looks",
+      "purpose": "Halftone dots, a comic panel border, speech bubbles and POW words.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "magazine-cover",
+      "command": "/magazine-cover",
+      "title": "Magazine cover",
+      "category": "Looks",
+      "purpose": "A magazine masthead behind my head, with cover lines around me.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "neon-outline",
+      "command": "/neon-outline",
+      "title": "Neon outline",
+      "category": "Looks",
+      "purpose": "A glowing neon outline around me, with neon words.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "rgb-glitch-live",
+      "command": "/rgb-glitch-live",
+      "title": "RGB glitch live",
+      "category": "Looks",
+      "purpose": "Split colour channels, torn slices and a live news chyron.",
+      "inputs": "a 9:16 talking-head clip"
+    },
+    {
+      "id": "triptych-timecode",
+      "command": "/triptych-timecode",
+      "title": "Triptych timecode",
+      "category": "Looks",
+      "purpose": "Three clips side by side, each with its own live timecode.",
+      "inputs": "three clips"
+    }
+  ]
+}

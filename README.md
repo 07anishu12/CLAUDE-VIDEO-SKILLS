@@ -10,63 +10,57 @@ For Claude Code video editing and AI-assisted video production, Claude Video Ski
 
 ## Quick installation
 
-Clone the repository, then copy the appropriate skills folder into the project where you use your agent.
+Clone the repository, then run the installer for the project where you want to use the skills. It installs canonical skills and the local engine without replacing unrelated files.
 
 ### Claude Code
 
 ~~~bash
 git clone https://github.com/07anishu12/CLAUDE-VIDEO-SKILLS.git
 cd CLAUDE-VIDEO-SKILLS
-mkdir -p /path/to/your-project/.claude
-cp -R packages/claude-video-skills/.claude/skills /path/to/your-project/.claude/
+./installers/install.sh --agent claude --project-dir /path/to/your-project
 ~~~
 
 For just the main skill:
 
 ~~~bash
-mkdir -p /path/to/your-project/.claude/skills
-cp -R packages/claude-video-skills/.claude/skills/claude-video /path/to/your-project/.claude/skills/
+./installers/install.sh --agent claude --project-dir /path/to/your-project --skills claude-video
 ~~~
 
 ### OpenAI Codex
 
 ~~~bash
-mkdir -p /path/to/your-project/.agents
-cp -R packages/codex-video-skills/.agents/skills /path/to/your-project/.agents/
+./installers/install.sh --agent codex --project-dir /path/to/your-project
 ~~~
 
-Codex also discovers personal skills in ~/.agents/skills/. In Codex, use /skills to browse or type $ and select a skill. The current Codex bundle names its router codex-video, so invoke it as $codex-video.
+Codex also discovers personal skills in `~/.agents/skills/`. Browse with `/skills` or invoke the router with `$claude-video`.
 
 To install only that router:
 
 ~~~bash
-mkdir -p /path/to/your-project/.agents/skills
-cp -R packages/codex-video-skills/.agents/skills/codex-video /path/to/your-project/.agents/skills/
+./installers/install.sh --agent codex --project-dir /path/to/your-project --skills claude-video
 ~~~
 
 ### Google Antigravity
 
-Antigravity supports Agent Skills in the workspace .agents/skills/ directory. You can use the same skill files:
+Antigravity supports Agent Skills in the workspace `.agents/skills/` directory. Install the canonical skills with:
 
 ~~~bash
-mkdir -p /path/to/your-project/.agents
-cp -R packages/codex-video-skills/.agents/skills /path/to/your-project/.agents/
+./installers/install.sh --agent antigravity --project-dir /path/to/your-project
 ~~~
 
-Antigravity discovers relevant skills automatically; the Antigravity app and CLI also support /<skill-name> invocation. In the current bundle, the router folder is named codex-video. For global installation, Antigravity documents ~/.gemini/config/skills/.
+Antigravity discovers workspace skills from `.agents/skills/` and supports slash invocation in its agent interface. For user-level installation, the installer targets `~/.gemini/config/skills/`.
 
-To install only the router, copy the codex-video folder into your project’s .agents/skills/ directory:
+To install only the router:
 
 ~~~bash
-mkdir -p /path/to/your-project/.agents/skills
-cp -R packages/codex-video-skills/.agents/skills/codex-video /path/to/your-project/.agents/skills/
+./installers/install.sh --agent antigravity --project-dir /path/to/your-project --skills claude-video
 ~~~
 
-The repository does not currently include a one-command installer. These copy commands install the checked-in skill folders without replacing unrelated skills. Start a new session or reload skills after installation if needed.
+The installer also supports `--agent auto`, `--scope user`, `--dry-run`, `--upgrade`, and `--uninstall`. Because Codex and Antigravity share `.agents/skills/`, auto-detection asks you to select one unless the host provides a detectable environment variable. If a managed target differs from the package, installation stops unless `--upgrade` is given; upgrades save a backup. On Windows, use `installers/install.ps1` and `installers/uninstall.ps1`. Refresh the agent session after installation.
 
 ## Supported agents
 
-The skills use the portable Agent Skills format. Claude Code discovers project skills in .claude/skills/ ([official docs](https://code.claude.com/docs/en/skills)). Codex and Antigravity discover workspace skills in .agents/skills/ ([Codex docs](https://learn.chatgpt.com/docs/build-skills), [Antigravity docs](https://antigravity.google/docs/skills?app=antigravity-ide)). Skill invocation differs by host: Claude Code uses /skill-name, Codex supports explicit selection through $skill-name, and Antigravity supports /skill-name in its app and CLI. Compatibility depends on the host implementing this format and its local discovery behavior.
+The skills use the portable Agent Skills format. Claude Code discovers project skills in `.claude/skills/` ([official docs](https://code.claude.com/docs/en/skills)). Codex and Antigravity discover workspace skills in `.agents/skills/` ([Codex docs](https://learn.chatgpt.com/docs/build-skills), [Antigravity docs](https://antigravity.google/docs/skills?app=antigravity-ide)). Invocation differs by host: Claude Code uses `/skill-name`, Codex supports `$skill-name`, and Antigravity uses its Agent Skills interface. Compatibility depends on each host's current discovery behavior.
 
 ## What you can create
 
@@ -109,11 +103,11 @@ Use a watercolor illustration style.
 Make a cinematic music video using these images and audio.
 ~~~
 
-In Codex, choose the codex-video skill with $codex-video; in Antigravity, use /codex-video or let the agent select it based on your request. Skill invocation names are platform-specific.
+In Codex, invoke the router as `$claude-video`. In Antigravity, invoke `/claude-video` where slash skill invocation is enabled, or let the agent select it from `.agents/skills/`.
 
 ## All 80 Video Skills & Commands
 
-The command reference below preserves all 80 specialist names. The existing platform bundles are organized by descriptive skill-folder names; a few differ from these command aliases. In those cases, invoke the installed folder name shown under the selected package’s skills directory.
+The command reference below lists the 80 canonical specialist skill names. Each command matches its installed folder name, so the same specialist is independently discoverable in every supported skill directory.
 
 ### Animated videos
 
@@ -223,7 +217,7 @@ The command reference below preserves all 80 specialist names. The existing plat
 ## Example workflows
 
 ~~~text
-$codex-video
+$claude-video
 Edit this interview into a 30-second vertical short. Keep the original audio.
 ~~~
 
@@ -239,34 +233,37 @@ Add the particle-chart treatment to the moment I discuss quarterly revenue.
 
 ## Video engine and dependencies
 
-The repository includes a small FFmpeg-backed media helper for:
+The repository includes an FFmpeg-backed editing engine for:
 
 - Inspecting media metadata with FFprobe
-- Creating a contact sheet from video
-- Validating that a rendered video has a video stream, duration, and expected dimensions
+- Creating contact sheets
+- Rendering a JSON timeline with trims, multiple clips, crop/resize, speed, zoom, basic color controls, cut concatenation, supported cross-transitions, optional audio beds/fades, and SRT subtitle tracks
+- Validating that a rendered MP4 has a video stream, duration, and expected dimensions
 
-Install FFmpeg and FFprobe and make both commands available on your PATH. Run the helper from the repository root:
+Install FFmpeg and FFprobe and make both commands available on your PATH. The CLI is `engine/video.py`:
 
 ~~~bash
-python3 shared/scripts/media.py --help
-python3 shared/scripts/media.py inspect path/to/media.mp4
-python3 shared/scripts/media.py contact-sheet path/to/video.mp4 out/contact.png
-python3 shared/scripts/media.py validate out/final.mp4
+python3 engine/video.py --help
+python3 engine/video.py check
+python3 engine/video.py inspect path/to/media.mp4
+python3 engine/video.py contact-sheet path/to/video.mp4 out/contact.png
+python3 engine/video.py quick-edit --input path/to/video.mp4 --output out/final.mp4 --width 1080 --height 1920
+python3 engine/video.py validate out/final.mp4
 ~~~
 
-The helper does not currently provide a general-purpose timeline renderer, AI footage generation, speech recognition, or forced lyric alignment. Those capabilities depend on other local tools or models and should be checked before promising a result.
+For a complete timeline, `engine/video.py render project.json` accepts explicit clip/audio/caption paths and supported filters. Audio analysis measures silence with FFmpeg; BPM estimates are optional and require librosa. No transcription, forced lyric alignment, image/video generation model, 3D scene generator, or generative API is bundled. There is no native Claude or Antigravity plugin package; use the verified skill installer for those hosts.
 
-FFmpeg video automation here means media inspection, contact-sheet creation, and output checks. It is not a standalone music video generator or AI animation model.
+Skills are agent instructions; the Python/FFmpeg engine performs concrete edits to supplied media; external models are separate optional tools; the rendered MP4 is the output artifact. The engine does not generate novel footage by itself.
 
 ## Output formats
 
-The helper inspects existing files and validates video outputs, including MP4. Skills may instruct an agent to render with available local media tools. Resolution, frame rate, codecs, captions, and other output details depend on the chosen workflow and installed tools; inspect the result before sharing it.
+The renderer exports H.264/AAC MP4, with optional SRT captions muxed as a text subtitle track. Timeline dimensions and frame rate are configurable; the CLI defaults to vertical 1080×1920 at 30 fps. Inspect every output before sharing it.
 
 ## Troubleshooting
 
 - **A skill is missing:** Confirm it was copied into the correct agent directory and refresh or restart the agent session.
 - **The helper cannot inspect a file:** Check that FFmpeg/FFprobe are installed and that the input codec is supported.
-- **A command name is not found:** Use the skill folder name currently installed in the platform package; some catalog aliases differ from bundle folder names.
+- **A command name is not found:** Confirm the canonical command folder is present under the platform's skill directory, then refresh the agent session.
 - **Lyrics are mistimed:** Provide corrected lyric text and timestamps or install a compatible alignment tool. Do not assume song transcription is accurate.
 - **A requested visual cannot be rendered:** The workflow may need a separate image/video-generation model or animation application. Use available assets and disclose tool limits.
 

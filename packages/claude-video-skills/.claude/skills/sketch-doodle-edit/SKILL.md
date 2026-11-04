@@ -1,34 +1,42 @@
 ---
 name: sketch-doodle-edit
-description: "One photo turned into the trending sketch doodle edit from How to do this with Claude (Ep 4): the people flicker between the real photo and a pencil sketch on the beat, white wind lines swoosh across the sky, a scribble outline draws around Use when asked for sketch doodle edit video production or editing.
+description: "One photo turned into the trending sketch doodle edit from How to do this with Claude (Ep 4): the people flicker between the real photo and a pencil sketch on the beat, white wind lines swoosh across the sky, a scribble outline draws around them and a handwritten line writes itself in. Use for sketch doodle edit requests."
 ---
 
 # Sketch doodle edit
 
+## Purpose
+One photo turned into the trending sketch doodle edit from How to do this with Claude (Ep 4): the people flicker between the real photo and a pencil sketch on the beat, white wind lines swoosh across the sky, a scribble outline draws around them and a handwritten line writes itself in.
+
 ## When to use
-Use this workflow for sketch doodle edit requests in the **Animated videos** collection. Preserve this specific visual intent; do not substitute a generic cinematic treatment.
+Use this specialist for the exact treatment above. Keep its defining look and purpose; do not replace it with a generic cinematic edit.
 
-## Required assets and formats
-- Inputs: one photo (people against an open sky works best), its pencil-sketch version from Gemini, and the song MP3
-- Accept common video formats (MP4, MOV, WebM), audio (MP3, WAV, M4A), images (PNG, JPEG, WebP), and text scripts/lyrics when relevant. Confirm installed tools support the detected codec.
-- Keep source media read-only. Do not fabricate lyrics, timestamps, quotes, footage, or source-dependent detail.
+## Inputs and dependencies
+- Expected material: one photo (people against an open sky works best), its pencil-sketch version from Gemini, and the song MP3
+- Accept supported local media such as MP4, MOV, WebM, MP3, WAV, M4A, PNG, JPEG, and WebP when the installed FFmpeg build can decode it.
+- Require Python 3.10+ and FFmpeg/FFprobe for rendering. Optional transcription, forced-alignment, 3D, or generative-media tools must be checked before use; never imply they are installed.
+- Do not overwrite source media. Do not invent lyrics, claims, dialogue, or precise timestamps.
 
-## Workflow
-1. Locate the supplied files and inspect duration, dimensions, frame rate, audio streams, and codec with `ffprobe`. Report missing essential inputs only.
-2. Turn the request into a concise production plan specific to this treatment: shots/scenes, timing, typography, motion, transitions, color, and audio behavior. When audio or lyrics are involved, inspect the track and align timing to measured vocal/music events; mark uncertain alignment instead of guessing.
-3. Make a working project directory under `out/sketch-doodle-edit/` and keep originals untouched. Use FFmpeg filters or a small reproducible script; use existing footage and assets unless the user requests generated visuals.
-4. Render a representative low-resolution preview or contact sheet before the final render. Show it to the user and ask for approval or requested revisions. Never overwrite an existing output without asking.
-5. Apply revisions, then render the approved result. Preserve original audio unless asked to change it. Keep titles/captions inside platform safe areas and do not alter a person's appearance automatically.
+## Treatment-specific workflow
+1. Read the supplied narration/script/lyrics, identify scenes and actions, and make a shot list with timing tied to supplied audio where available.
+2. Create a consistent visual language and recurring-character/prop notes before making shots; use user assets or tools that are actually available.
+3. Build motion and transitions from the narrative beats. Keep subtitles in the original supplied writing system.
+4. Translate the purpose and user references into concrete shots, timing, motion, color, captions, and transitions for this one treatment: One photo turned into the trending sketch doodle edit from How to do this with Claude (Ep 4): the people flicker between the real photo and a pencil sketch on the beat, white wind lines swoosh across the sky, a scribble outline draws around them and a handwritten line writes itself in.
+5. Select the output ratio from the request; for a reel, start with the requested or source aspect ratio. Preserve the source frame rate when practical, otherwise use 30 fps.
 
-## Technical settings
-- Default: 9:16 vertical, 1080×1920 at 30 fps. Match the source frame rate when that is more appropriate; otherwise use 30 fps.
-- Use H.264 video and AAC audio in MP4 for broad playback compatibility. Preserve source aspect ratio through crop/pad decisions made explicit in the plan.
-- For lyric or speech captions, preserve the supplied script and writing system; use forced alignment if available. Do not claim word-level accuracy without alignment evidence.
+## Render workflow
+1. Locate and inspect supplied assets with the installed `video.py inspect` command (in a repository checkout: `python3 engine/video.py inspect path/to/media`); confirm duration, streams, dimensions, and frame rate.
+2. Ask only for an essential missing asset. For songs, inspect the audio and estimate BPM only if the optional analyzer is available. Use supplied lyrics or a transcript; use verified timestamps/forced alignment for word timing. If unavailable or uncertain, keep line-level timing approximate and disclose it.
+3. Create an edit plan with the shot sequence and output path. Use engine/video.py quick-edit for a trim, crop, speed, grade, audio-bed, or cut-based montage, or write a JSON timeline and run engine/video.py render project.json for per-clip settings and transitions.
+4. Make a low-resolution preview render under out/sketch-doodle-edit/preview.mp4 and create a contact sheet. Show the preview/contact sheet and request approval for substantial creative changes.
+5. After approval, render the final H.264/AAC MP4 under out/sketch-doodle-edit/final.mp4. Keep source audio by default for a single source clip; for multiple clips, preserve clip audio through the renderer or use a user-selected audio bed.
+6. Validate the output with engine/video.py validate file. Report the actual output path and any unavailable effects or alignment features.
 
-## Outputs and checks
-- Save project notes, preview, and final MP4 under `out/sketch-doodle-edit/`.
-- Verify the output exists, has non-zero duration, expected dimensions/frame rate, readable audio, and no obvious dropped/blank frames. Provide exact file paths and summarize any limitations.
-- If a dependency or alignment tool is missing, explain the limitation and offer a workable reduced workflow rather than claiming success.
+## Failure handling
+- If FFmpeg/FFprobe is missing, report the missing executable and stop before rendering.
+- If a codec is unsupported, identify it from FFprobe and offer a conversion or alternate input.
+- If a preview/final render fails, preserve sources and any prior output; report FFmpeg's error and do not claim a completed MP4.
+- Ask before replacing any existing output.
 
 ## Example
-`/sketch-doodle-edit Make a sketch doodle edit from the attached media. Preview first.`
+/sketch-doodle-edit Apply the Sketch doodle edit treatment to my supplied media. Make a review preview first.

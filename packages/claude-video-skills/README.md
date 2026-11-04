@@ -1,31 +1,13 @@
-# Claude Video Skills for Claude Code
+# Claude Video Skills: Claude Code bundle
 
-This folder contains the Claude Code installation bundle for the unified Claude Video Skills project. It includes the claude-video router and specialist video workflows. The root [README](../../README.md) has the product overview, examples, limitations, and complete 80-command reference.
+This folder is a generated distribution snapshot of the canonical skill library in [`/skills`](../../skills/). Do not edit copied skills here; update the canonical files and regenerate with `python3 tools/build_bundles.py`.
 
-## Install in a project
+For the full 80-skill catalog, platform guidance, verified capabilities, and current installation steps, see the [root README](../../README.md).
 
-From the repository root, copy the skill folder into the project that will use Claude Code:
+Install into a project with the repository installer:
 
-~~~bash
-mkdir -p /path/to/your-project/.claude
-cp -R packages/claude-video-skills/.claude/skills /path/to/your-project/.claude/
-~~~
+```bash
+./installers/install.sh --agent claude --project-dir /path/to/project
+```
 
-For a personal installation shared across Claude Code projects, use ~/.claude/skills/ instead of the project’s .claude/skills/ directory.
-
-To install just the router, copy packages/claude-video-skills/.claude/skills/claude-video into the target .claude/skills/ directory.
-
-## Use
-
-Start or refresh the Claude Code session, then run:
-
-~~~text
-/claude-video
-Create a short video from these supplied clips. Show a preview first.
-~~~
-
-Claude Code also supports directly invoking a specialist with /skill-name. Use the installed folder name under .claude/skills/; the root README’s full command index contains the preserved specialist command reference and notes where names differ.
-
-## Rendering
-
-The skill files provide instructions. They do not include a full video editor or footage-generation model. Install FFmpeg and FFprobe if the workflow needs the repository media helper, and check optional model or application dependencies before using them.
+Claude Code discovers skills under `.claude/skills/` and invokes the main router as `/claude-video`. Rendering requires the separate FFmpeg/FFprobe tools described in the root guide.

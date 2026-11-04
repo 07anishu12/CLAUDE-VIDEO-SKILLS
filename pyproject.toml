@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "video-skills-core"
+version = "0.2.0"
+description = "FFmpeg-backed local video inspection and editing utilities for Claude Video Skills"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+audio = ["librosa>=0.10"]
+
+[project.scripts]
+video-skills = "videoskills.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "engine"}
+
+[tool.setuptools.packages.find]
+where = ["engine"]
