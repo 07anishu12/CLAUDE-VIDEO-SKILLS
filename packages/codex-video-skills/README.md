@@ -1,41 +1,37 @@
-# Codex Video Skills
+# Claude Video Skills for Codex and compatible agents
 
-Codex Video Skills brings reusable AI video editing workflows into Codex. The collection covers video editing, music video creation, lyric treatments, reels, motion effects, animated stories, and looks. Codex reads the skill instructions and uses available local tools; actual editing depends on installed media software and codecs.
+This folder contains the Codex installation bundle for the unified Claude Video Skills project. Its skill files follow the Agent Skills folder convention. The root [README](../../README.md) provides the unified product guide, examples, limits, and complete 80-command reference.
 
-## Install and discover
+## Install in Codex
 
-Copy the `.agents/skills/` directory into the root of a project. For personal, cross-project use, copy its skill folders into `~/.agents/skills/`. Each skill must remain in its own folder containing `SKILL.md`. Open or refresh the Codex session so the skill inventory can be discovered.
+Copy the bundle into the project where Codex will use it:
 
-```sh
+~~~bash
 mkdir -p /path/to/your-project/.agents
 cp -R packages/codex-video-skills/.agents/skills /path/to/your-project/.agents/
-# Personal installation:
-mkdir -p ~/.agents/skills
-cp -R packages/codex-video-skills/.agents/skills/* ~/.agents/skills/
-```
+~~~
 
-## Use
+For personal Codex skills shared across projects, use ~/.agents/skills/. Codex’s skill picker is available through /skills; explicit invocation uses the $skill-name syntax. In this existing bundle, the main router folder is codex-video, so use $codex-video.
 
-Ask Codex naturally or invoke a skill by name where the host exposes skill invocation:
+To install only the router, copy packages/codex-video-skills/.agents/skills/codex-video into the target .agents/skills/ directory.
 
-```text
-/codex-video Create a Hindi lyric video from the supplied MP3 and lyrics. Show a preview first.
-/watercolor-map-journey Make a travel story from these photos and narration.
-/particle-chart Add a particle chart at the revenue section in this clip.
-```
+## Install in Antigravity
 
-Codex Video routes a request to one relevant specialist from the five maintained groups: Animated videos, Reel formats, Motion effects, Edit styles, and Looks. It follows the specialist workflow directly if the host does not support programmatic skill chaining.
+Antigravity also discovers workspace skills under .agents/skills/ and supports /skill-name invocation in its app and CLI. The same bundle can be copied into a workspace:
 
-## Skills and media
+~~~bash
+mkdir -p /path/to/your-project/.agents
+cp -R packages/codex-video-skills/.agents/skills /path/to/your-project/.agents/
+~~~
 
-There are individual skill folders under `.agents/skills/`. The shared source inventory is [`../../research/inventory.csv`](../../research/inventory.csv). Skills accept common video, audio, image, and text formats when the local FFmpeg build supports them. Install FFmpeg/FFprobe for media inspection, preview sheets, and rendering. `scripts/media.py` offers inspect, contact-sheet, and validation commands.
+Antigravity documents ~/.gemini/config/skills/ as its global skill location. This repository’s bundle has not been verified inside an Antigravity session, and no marketplace plugin is included in this folder.
 
-The default experience keeps original media intact, preserves source audio, prepares a preview for user review, and asks before overwriting an output. Vertical reels default to 1080×1920/30 fps and landscape projects to 1920×1080/30 fps unless specified otherwise. Forced alignment and transcription require separate compatible tools and are not silently simulated.
+For the router only, copy the codex-video folder instead of the full skills directory.
 
-## Limitations
+## Main entry point and specialists
 
-Skills are instructions, not a bundled video editor or generative media model. Render availability, transcription quality, forced alignment, and codecs depend on the environment. Review the preview and verify the final file before sharing.
+Use natural language with $codex-video in Codex, or /codex-video in Antigravity. For a specialist, select or invoke the installed skill by its folder name. Consult the root README for the complete command list and current differences between the reference names and installed folder names.
 
-## Contributing
+## Rendering
 
-Keep the Codex package independently installable and retain `.agents/skills/<name>/SKILL.md` structure. Document dependencies and failure behavior. Run `python3 tests/validate_library.py` before submitting changes. The `LICENSE` covers this project's original implementation; source prompt text and artwork are not redistributed.
+The bundle contains instructions, not a complete editor or a generative video model. FFmpeg and FFprobe are needed for the repository’s media helper. Other capabilities depend on available tools and models; verify them before promising generated visuals or precise lyric timing.
