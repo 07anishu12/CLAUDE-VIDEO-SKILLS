@@ -1,4 +1,4 @@
-# Video Skills Core
+# Claude Video Skills — AI Video Editing & Generation Skills for Claude Code
 
 Video Skills Core is the shared engineering project behind **Claude Video Skills** and **Codex Video Skills**: installable agent workflows for video editing, music videos, reels, animation, motion effects, edit styles, and looks.
 
