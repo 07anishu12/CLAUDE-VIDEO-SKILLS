@@ -1,35 +1,49 @@
 #!/usr/bin/env python3
-"""Validate inventory coverage and installable platform skill bundles."""
+"""Validate canonical catalog, skill metadata, routes, and installed bundle parity."""
 import json
 import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-data = json.loads((ROOT / "research/inventory.json").read_text())
-entries = data["skills"]
-assert len(entries) == data["actual_count"] == 80, f"inventory count mismatch: {len(entries)}"
-assert len({e["source_id"] for e in entries}) == len(entries), "duplicate source IDs"
-assert len({e["new_skill_id"] for e in entries}) == len(entries), "duplicate skill IDs"
-assert all(e["prompt_status"] in {"complete", "partial", "inaccessible"} for e in entries)
-assert all(e["source_url"].startswith("https://aanshai.vercel.app/skills#") for e in entries)
+catalog = json.loads((ROOT / "catalog/skills.json").read_text(encoding="utf-8"))
+entries = catalog["skills"]
+assert len(entries) == 80, f"expected 80 specialist workflows, found {len(entries)}"
+assert len({item["id"] for item in entries}) == 80
+assert len({item["command"] for item in entries}) == 80
+assert all(item["id"] == item["command"].removeprefix("/") for item in entries)
+counts = {category: sum(item["category"] == category for item in entries) for category in catalog["categories"]}
+assert counts == {"Animated videos": 52, "Reel formats": 7, "Motion effects": 7, "Edit styles": 7, "Looks": 7}, counts
 
-for pkg, parent in [("claude-video-skills", ".claude/skills"), ("codex-video-skills", ".agents/skills")]:
-    base = ROOT / "packages" / pkg / parent
-    assert base.is_dir(), f"missing skill root {base}"
-    for entry in entries:
-        skill = base / entry["new_skill_id"] / "SKILL.md"
-        assert skill.is_file(), f"missing {skill}"
-        text = skill.read_text()
-        assert text.startswith("---\nname: ") and "\ndescription: " in text.split("---", 2)[1], skill
-        assert all(section in text for section in ("## When to use", "## Required assets", "## Workflow", "## Technical settings", "## Outputs and checks", "## Example")), skill
-        assert f"/{entry['new_skill_id']}" in text
-    main = "claude-video" if pkg == "claude-video-skills" else "codex-video"
-    assert (base / main / "SKILL.md").is_file(), f"missing router in {pkg}"
-    assert (ROOT / "packages" / pkg / "scripts/media.py").is_file()
+def validate_skill(path: Path, expected: str):
+    text = path.read_text(encoding="utf-8")
+    match = re.match(r"^---\nname: ([a-z0-9-]+)\ndescription: \"(.+)\"\n---\n", text)
+    assert match, f"invalid or missing metadata: {path}"
+    assert match.group(1) == expected, f"metadata name mismatch: {path}"
+    for section in ("## Purpose", "## When to use", "## Inputs and dependencies", "## Treatment-specific workflow", "## Render workflow", "## Failure handling", "## Example"):
+        assert section in text, f"missing {section}: {path}"
+    for ref in re.findall(r"`(engine/[^`]+)`", text):
+        target = ROOT / ref.split()[0]
+        assert target.exists(), f"broken engine reference {ref}: {path}"
 
-cats = {c: sum(e["category"] == c for e in entries) for c in data["categories"]}
-assert cats == {"Animated videos": 52, "Reel formats": 7, "Motion effects": 7, "Edit styles": 7, "Looks": 7}, cats
-for path in [ROOT / "README.md", ROOT / "packages/claude-video-skills/README.md", ROOT / "packages/codex-video-skills/README.md"]:
-    assert path.is_file() and path.stat().st_size > 300
-assert (ROOT / "LICENSE").is_file()
-print(f"PASS: {len(entries)} inventory entries, {len(entries)*2} specialist bundles, two routers, category counts {cats}")
+for item in entries:
+    skill = ROOT / "skills" / item["id"] / "SKILL.md"
+    assert skill.is_file(), f"missing canonical skill {skill}"
+    validate_skill(skill, item["id"])
+
+router = ROOT / "skills/claude-video/SKILL.md"
+router_text = router.read_text(encoding="utf-8")
+assert re.match(r"^---\nname: claude-video\ndescription: \".+\"\n---\n", router_text)
+for section in ("## Route the request", "## Production process", "## What the local engine does", "## Specialist command directory"):
+    assert section in router_text, f"router is missing {section}"
+for item in entries:
+    assert item["command"] in router_text, f"router does not list {item['command']}"
+readme = (ROOT / "README.md").read_text(encoding="utf-8")
+readme_commands = re.findall(r"^\| (/[-a-z0-9]+) \|", readme, flags=re.MULTILINE)
+assert len(readme_commands) == 80 and set(readme_commands) == {item["command"] for item in entries}, "README specialist command table differs from catalog"
+for arg in ("install.sh", "uninstall.sh", "install.ps1", "uninstall.ps1"):
+    assert (ROOT / "installers" / arg).is_file(), f"README refers to a missing installer: {arg}"
+
+assert (ROOT / "engine/video.py").is_file()
+assert (ROOT / "installers/manage.py").is_file()
+assert (ROOT / "README.md").is_file()
+print(f"PASS: {len(entries)} canonical skills, router, route references, and categories {counts}")
